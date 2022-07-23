@@ -1,8 +1,18 @@
 <script setup>
-import ProductSubmitForm from '@/components/ProductSubmitForm.vue'
-import ProductList from '@/components/ProductList.vue'
+import { ref } from "vue";
+import ProductAddForm from "@/components/ProductAddForm.vue";
+import ProductList from "@/components/ProductList.vue";
+
+const products = ref([]);
+
+defineEmits(["addProduct"]);
+
+function addProduct(product) {
+  products.value.push({ ...product });
+  newInput.id++;
+}
 </script>
 <template>
-  <ProductSubmitForm />
-  <ProductList />
+  <ProductAddForm @add-product="addProduct" />
+  <ProductList :products="products" />
 </template>
