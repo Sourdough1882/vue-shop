@@ -5,7 +5,6 @@ defineProps({
 </script>
 <template>
   <article class="product-card">
-    {{ product.id }}
     <img class="product-image" :src="product.image" width="300" alt="" />
     <h2 class="product-name">{{ product.name }}</h2>
     <p class="product-description">{{ product.description }}</p>

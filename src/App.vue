@@ -9,7 +9,7 @@ defineEmits(["addProduct"]);
 
 function addProduct(product) {
   products.value.push({ ...product });
-  newInput.id++;
+  product.id++;
 }
 </script>
 <template>

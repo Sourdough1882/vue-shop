@@ -1,6 +1,6 @@
 <script setup>
-import { reactive, watch, ref } from "vue";
-import ProductInputField from "@/components/ProductInputField.vue";
+import { reactive, watch, ref } from 'vue';
+import ProductInputField from '@/components/ProductInputField.vue';
 
 const productInput = reactive({
   id: 0,
@@ -12,14 +12,8 @@ const productInput = reactive({
 
 let isValidated = ref(false);
 
-watch(productInput, (newInput) => {
-  isValidated.value =
-    newInput.name &&
-    newInput.description &&
-    newInput.image &&
-    productInput.price
-      ? true
-      : false;
+watch(productInput, async (newInput) => {
+  isValidated.value = newInput.name && newInput.description && newInput.image && productInput.price ? true : false;
 });
 </script>
 <template>
@@ -49,7 +43,8 @@ watch(productInput, (newInput) => {
         placeholder="Введите ссылку"
       />
       <ProductInputField
-        v-model.number="productInput.price"
+        v-model="productInput.price"
+        v-maska="['# ###', '## ###', '### ###', '# ### ###']"
         label="Цена товара"
         placeholder="Введите цену"
       />
