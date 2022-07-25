@@ -44,7 +44,7 @@ watch(productInput, async (newInput) => {
       />
       <ProductInputField
         v-model="productInput.price"
-        v-maska="['# ###', '## ###', '### ###', '# ### ###']"
+        v-maska="['##', '###', '# ###', '## ###', '### ###', '# ### ###', '## ### ###', '### ### ###']"
         label="Цена товара"
         placeholder="Введите цену"
       />

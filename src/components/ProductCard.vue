@@ -1,7 +1,11 @@
 <script setup>
+import { inject } from 'vue'
 defineProps({
   product: Object,
 });
+
+const removeProduct = inject('removeProduct');
+
 </script>
 <template>
   <article class="product-card">
@@ -9,6 +13,6 @@ defineProps({
     <h2 class="product-name">{{ product.name }}</h2>
     <p class="product-description">{{ product.description }}</p>
     <p class="product-price">{{ product.price }}</p>
-    <button>Удалить</button>
+    <button @click="removeProduct(product)">Удалить</button>
   </article>
 </template>

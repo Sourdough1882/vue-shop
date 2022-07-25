@@ -1,11 +1,8 @@
 <script setup>
-import { computed } from 'vue';
-
-const props = defineProps({
+defineProps({
   modelValue: String,
   label: String,
   placeholder: String,
-  modelModifiers: { default: () => ({}) }
 });
 const emit = defineEmits(["update:modelValue"]);
 </script>
@@ -19,7 +16,6 @@ const emit = defineEmits(["update:modelValue"]);
       <input
         class="product-input"
         id="product-input"
-        max="10"
         type="text"
         :placeholder="placeholder"
         :value="modelValue"

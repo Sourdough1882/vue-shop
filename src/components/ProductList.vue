@@ -1,7 +1,7 @@
 <script setup>
 import ProductCard from '@/components/ProductCard.vue';
 defineProps({
-  products: Object,
+  products: Array,
 });
 </script>
 <template>
@@ -11,10 +11,10 @@ defineProps({
         >Цена</label
       >
       <select class="price-filter-dropdown" id="price-filter-dropdown">
-        <option class="" value="min">Мин.</option>
-        <option class="" value="max">Мин.</option>
+        <option class="">Цена по возрастанию</option>
+        <option class="">Цена по убыванию</option>
       </select>
     </p>
-    <ProductCard v-for="product in products" :product="product" />
+    <ProductCard v-for="product in products" :product="product" :key="product.id" />
   </article>
 </template>
