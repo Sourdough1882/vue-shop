@@ -1,17 +1,20 @@
 <script setup>
-defineProps({
+const props = defineProps({
   modelValue: String,
   label: String,
   placeholder: String,
+  error: Boolean
 });
-const emit = defineEmits(["update:modelValue"]);
+
+defineEmits(['update:modelValue']);
+
 </script>
 <template>
   <p class="product-input-field">
     <label class="product-input-label" for="product-input">
       {{ label }}
     </label>
-    <br />
+    <br>
     <slot>
       <input
         class="product-input"
@@ -22,5 +25,7 @@ const emit = defineEmits(["update:modelValue"]);
         @input="$emit('update:modelValue', $event.target.value)"
       />
     </slot>
+    <br>
+    <label class="input-error" v-if="props.modelValue === null && props.error === true" >Обязательно для заполнения</label>
   </p>
 </template>
