@@ -22,6 +22,7 @@ watch(productInput, async (newInput) => {
 function submit() {
   if (productInput.name && productInput.description && productInput.image && productInput.price) {
     error.value = false;
+    productInput.price = parseInt(productInput.price.replace(/\s/g, ''));
     emit('addProduct', productInput);
     productInput.name = productInput.description = productInput.image = productInput.price = null;
   } else {

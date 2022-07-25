@@ -1,21 +1,28 @@
 <script setup>
-import { provide, ref } from "vue";
+import { onMounted, provide, ref, onUpdated } from "vue";
 import ProductAddForm from "@/components/ProductAddForm.vue";
 import ProductList from "@/components/ProductList.vue";
 
-const products = ref([]);
+let products = ref([]);
 
 defineEmits(["addProduct"]);
 provide('removeProduct', removeProduct);
 
+onMounted(() => {
+  if (localStorage.getItem('products')) {
+    products.value = JSON.parse(localStorage.getItem('products'));
+  }
+});
+
 function removeProduct(productToRemove) {
   products.value = products.value.filter((product) => product !== productToRemove);
+  localStorage.setItem('products', JSON.stringify(products.value));
 }
 
 function addProduct(product) {
   products.value.push({ ...product });
-  products.value[product.id].price = parseInt(product.price.replace(/\s/g, ""));
   product.id++;
+  localStorage.setItem('products', JSON.stringify(products.value));
 }
 
 function sortBy(sortType) {
