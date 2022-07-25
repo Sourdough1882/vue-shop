@@ -11,8 +11,10 @@ defineProps({
         >Цена</label
       >
       <select class="price-filter-dropdown" id="price-filter-dropdown">
-        <option class="">Цена по возрастанию</option>
-        <option class="">Цена по убыванию</option>
+        <option class="" @click="$emit('sortBy', 'default')">По умолчанию</option>
+        <option class="" @click="$emit('sortBy', 'min')">Цена по возрастанию</option>
+        <option class="" @click="$emit('sortBy', 'max')">Цена по убыванию</option>
+        <option class="" @click="$emit('sortBy', 'name')">По наименованию</option>
       </select>
     </p>
     <ProductCard v-for="product in products" :product="product" :key="product.id" />
