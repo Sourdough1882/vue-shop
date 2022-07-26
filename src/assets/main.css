@@ -206,7 +206,7 @@ body {
   height: 2rem;
   cursor: pointer;
 }
-.product-area .product-list .product-card .product-delete-button :hover {
+.product-area .product-list .product-card .product-delete-button:hover {
   background: #e47575;
 }
 .product-area .product-list .product-card:hover .product-delete-button {
