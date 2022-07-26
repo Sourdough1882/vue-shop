@@ -65,6 +65,9 @@ body {
 .product-add-form .product-add-fieldset .input-wrap .product-input-field .product-input:focus {
   outline: 1px solid #7BAE73;
 }
+.product-add-form .product-add-fieldset .input-wrap .product-input-field .product-input:valid {
+  box-shadow: 0 1px 1px 0 #7BAE73;
+}
 .product-add-form .product-add-fieldset .input-wrap .product-input-field .product-input::placeholder {
   color: #B4B4B4;
   font-size: 0.75rem;
@@ -134,6 +137,7 @@ body {
 .product-area .product-filter .filter-dropdown {
   height: 2.25rem;
   background: #FFFEFB;
+  z-index: 1;
   font-size: 0.75rem;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   color: #B4B4B4;
@@ -152,8 +156,8 @@ body {
   display: flex;
   position: relative;
   flex-direction: column;
-  justify-content: space-evenly;
   cursor: pointer;
+  justify-content: space-evenly;
   border-radius: 4px;
   background: #FFFEFB;
   box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02);
