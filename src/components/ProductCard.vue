@@ -14,6 +14,8 @@ const removeProduct = inject("removeProduct");
       <p class="product-description">{{ product.description }}</p>
       <p class="product-price">{{ product.price }} руб.</p>
     </div>
-    <button class="product-delete-button" @click="removeProduct(product)"><img src="@/assets/icons/deleteBin.svg"></button>
+    <button class="product-delete-button" @click="removeProduct(product)">
+      <img src="@/assets/icons/deleteBin.svg" />
+    </button>
   </article>
 </template>
